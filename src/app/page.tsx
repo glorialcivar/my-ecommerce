@@ -5,17 +5,29 @@ export const metadata: Metadata = {
   description: "Welcome to our e-commerce platform",
 };
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm">
-        <h1 className="text-4xl font-bold mb-8">
-          Welcome to Our E-commerce Platform
-        </h1>
-        <p className="text-lg mb-4">
-          Discover amazing products at great prices.
-        </p>
+    <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold mb-4">Welcome to My E-commerce</h1>
+      <p className="text-lg mb-6">
+        A simple e-commerce application built with Next.js.
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="border rounded-lg p-6 shadow-sm">
+          <h2 className="text-xl font-semibold mb-2">Products</h2>
+          <p className="mb-4">Browse our collection of products.</p>
+          <a href="/products" className="text-blue-600 hover:underline">
+            View Products →
+          </a>
+        </div>
+        <div className="border rounded-lg p-6 shadow-sm">
+          <h2 className="text-xl font-semibold mb-2">Categories</h2>
+          <p className="mb-4">Explore products by category.</p>
+          <a href="/categories" className="text-blue-600 hover:underline">
+            View Categories →
+          </a>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }
