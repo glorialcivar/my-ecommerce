@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-
+import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
+import { AuthProvider } from "@/contexts/AuthContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "My E-commerce",
-  description: "A simple e-commerce application",
+  title: "Nestora - Modern E-commerce Platform",
+  description:
+    "A modern e-commerce platform built with Next.js, Supabase, and Tailwind CSS",
 };
 
 export default function RootLayout({
@@ -15,9 +18,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <main className="min-h-screen">{children}</main>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${inter.className} bg-background-base text-text-dark min-h-screen`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AuthProvider>
+            {children}
+            <Toaster />
+          </AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   );
