@@ -319,49 +319,92 @@ export type Database = {
           }
         ];
       };
-      users: {
+      stores: {
         Row: {
-          auth_id: string | null;
-          created_at: string | null;
-          email: string;
-          first_name: string | null;
           id: string;
-          last_name: string | null;
-          password_hash: string;
-          role: string | null;
-          updated_at: string | null;
+          name: string;
+          address: string;
+          phone: string;
+          created_at: string;
+          updated_at: string;
         };
         Insert: {
-          auth_id?: string | null;
-          created_at?: string | null;
-          email: string;
-          first_name?: string | null;
           id?: string;
-          last_name?: string | null;
-          password_hash: string;
-          role?: string | null;
-          updated_at?: string | null;
+          name: string;
+          address: string;
+          phone: string;
+          created_at?: string;
+          updated_at?: string;
         };
         Update: {
-          auth_id?: string | null;
-          created_at?: string | null;
-          email?: string;
-          first_name?: string | null;
           id?: string;
-          last_name?: string | null;
-          password_hash?: string;
-          role?: string | null;
-          updated_at?: string | null;
+          name?: string;
+          address?: string;
+          phone?: string;
+          created_at?: string;
+          updated_at?: string;
         };
-        Relationships: [
-          {
-            foreignKeyName: "users_auth_id_fkey";
-            columns: ["auth_id"];
-            isOneToOne: false;
-            referencedRelation: "user_profiles";
-            referencedColumns: ["auth_id"];
-          }
-        ];
+      };
+      banners: {
+        Row: {
+          id: string;
+          title: string;
+          description: string;
+          image_url: string;
+          link_url: string;
+          active: boolean;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          title: string;
+          description: string;
+          image_url: string;
+          link_url: string;
+          active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          title?: string;
+          description?: string;
+          image_url?: string;
+          link_url?: string;
+          active?: boolean;
+          created_at?: string;
+          updated_at?: string;
+        };
+      };
+      users: {
+        Row: {
+          id: string;
+          auth_id: string;
+          email: string;
+          full_name: string;
+          avatar_url: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          auth_id: string;
+          email: string;
+          full_name: string;
+          avatar_url?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          auth_id?: string;
+          email?: string;
+          full_name?: string;
+          avatar_url?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
       };
       wishlist_items: {
         Row: {
